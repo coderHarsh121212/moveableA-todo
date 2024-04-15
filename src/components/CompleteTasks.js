@@ -16,24 +16,23 @@ const CompleteTasks = ({ plannedTasks, deleteTask }) => {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex gap-4 items-center ">
-        <Options/>
-      <h1 className="text-2xl font-semibold flex items-center gap-3"><span className="w-3 h-3 bg-green-400 rounded-full"></span>Completed Tasks</h1>
+        <Options />
+        <h1 className="text-2xl font-semibold flex items-center gap-3">
+          <span className="w-3 h-3 bg-green-400 rounded-full"></span>Completed
+          Tasks
+        </h1>
         <p className="text-xs">{plannedTasks.length} Completed Tasks</p>
       </div>
 
       <div className="flex flex-col gap-2 w-full  rounded text-xs">
         {plannedTasks.map((e) => (
-          <div className="flex flex-col gap-5 w-full border-2 rounded p-3 flex-wrap shadow-2xl">
+          <div className="flex flex-col gap-5 w-full border-2 rounded p-3 flex-wrap shadow-2xl" key={e.id}>
             <div
               className="flex justify-between flex-col lg:flex-row gap-2 lg:gap-0"
               key={e.title}
             >
               <div className="flex gap-3 h-auto lg:w-3/4 items-center justify-center lg:justify-start">
-                <input
-                  type="checkbox"
-                  checked={e.checked}
-               
-                ></input>
+                <input type="checkbox" checked={e.checked} readOnly></input>
                 <p className="font-semibold">{e.title}</p>
               </div>
               <div className="w-full flex  gap-0 items-center justify-between lg:justify-between flex-wrap">
@@ -44,7 +43,7 @@ const CompleteTasks = ({ plannedTasks, deleteTask }) => {
                   <>
                     {cheeckTopics(e.topics).map((e) => (
                       <p
-                        key={e.Document}
+                        key={e}
                         className={`${
                           e == "Internal" && "bg-orange-200 text-orange-600"
                         } ${

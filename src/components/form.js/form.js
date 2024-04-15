@@ -4,8 +4,18 @@ import { TasksData } from "../../data/data";
 
 const FormComponent = () => {
   const monthNames = [
-    "January", "February", "March", "April", "May", "June", 
-    "July", "August", "September", "October", "November", "December"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
   const [plannedTasks, setPlannedTasks] = useState(TasksData);
   const { id } = useParams();
@@ -14,7 +24,7 @@ const FormComponent = () => {
   const [checkboxValues, setCheckboxValues] = useState({
     title: "",
     "Due At": `${new Date().getDate()} ${
-      monthNames[(new Date().getMonth() )]
+      monthNames[new Date().getMonth()]
     } ${new Date().getFullYear()}`,
     topics: {
       Internal: false,

@@ -33,7 +33,7 @@ const UpcomingTasks = ({ plannedTasks, deleteTask, handleChange }) => {
       </button>
       <div className="flex flex-col gap-2 w-full text-xs">
         {plannedTasks.UpcomigTasks.map((e) => (
-          <div className="flex flex-col gap-5 w-full border-2 rounded p-3 flex-wrap shadow-2xl ">
+          <div className="flex flex-col gap-5 w-full border-2 rounded p-3 flex-wrap shadow-2xl " key={e.id}>
             <div
               className="flex justify-between flex-col lg:flex-row gap-2 lg:gap-0"
               key={e.title}
@@ -54,7 +54,7 @@ const UpcomingTasks = ({ plannedTasks, deleteTask, handleChange }) => {
                   <>
                     {cheeckTopics(e.topics).map((e) => (
                       <p
-                        key={e.Document}
+                        key={e}
                         className={`${
                           e == "Internal" && "bg-orange-200 text-orange-600"
                         } ${
