@@ -15,7 +15,7 @@ const TopNavbar = () => {
         <div className="absolute sm:left-[130px] top-8 sm:top-8 left-[260px]">
 <Search/>
         </div>
-        <div className="flex gap-10 items-center text-xs md:gap-7 gap-5">
+        <div className="flex gap-10 items-center text-xs md:gap-7 ">
           <p className="font-normal text-gray-500 flex gap-1 items-center"><QuestionMArk/> Help center</p>
           <p className="bg-gray-500 text-white p-1 rounded-full h-6 w-6 text-center">H</p>
         </div>
