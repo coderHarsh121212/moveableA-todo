@@ -57,7 +57,7 @@ const HomePage = () => {
     }
   }
   useEffect(() => {
-    plannedTasks;
+    setPlannedTasks(plannedTasks);
   }, [plannedTasks]);
   return (
     <div className="flex flex-col gap-3 pl-72 ">
