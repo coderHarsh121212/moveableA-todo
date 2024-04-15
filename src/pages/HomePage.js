@@ -20,7 +20,7 @@ const HomePage = () => {
       );
       setPlannedTasks({ ...plannedTasks, UpcomigTasks: filteredTasks });
     }
-    if (taskname == "completeTasks") {
+    if (taskname == "c") {
       const filteredTasks = plannedTasks.CompleteTasks.filter(
         (task) => task.id !== id
       );
@@ -60,41 +60,43 @@ const HomePage = () => {
     setPlannedTasks(plannedTasks);
   }, [plannedTasks]);
   return (
-    <div className="flex flex-col gap-3 pl-72 ">
-      <div className="flex justify-between items-center py-2 pr-8 shadow-2xl">
-        <div className="flex gap-10 items-center">
-          <p className="font-semibold text-2xl">Task</p>
-          <p>Lists</p>
+    <div className="flex flex-col gap-3  w-full">
+      <div className="flex justify-between items-center py-2 pr-8 shadow-2xl flex-col  sm:flex-row">
+        <div className="flex gap-10 items-center ">
+          <div className="flex items-center gap-10 pl-20">
+            <p className="font-semibold text-2xl">Task</p>
+            <p className="border-b-2 border-black">Lists</p>
+          </div>
         </div>
-        <div className="gap-4 flex">
+        <div className="gap-4 flex pl-12 lg:pl-0">
           <div className="flex gap-4 border-r-2  px-4">
-            <p className="px-4 border-2 border-black rounded py-[2px] cursor-pointer">
+            <p className="sm:px-4 border-2 border-black rounded py-[2px] cursor-pointer px-1 text-xs lg:px-3 lg:text-lg md:text-base sm:text-sm hover:bg-gray-200">
               Sort By
             </p>
-            <p className="px-4 border-2 border-black rounded py-[2px] cursor-pointer">
+            <p className="sm:px-4 border-2 border-black rounded py-[2px] cursor-pointer px-1 text-xs lg:px-3 lg:text-lg md:text-base sm:text-sm hover:bg-gray-200">
               Filter
             </p>
           </div>
-          <p className="px-4 border-2 border-black rounded py-[2px] bg-black text-white cursor-pointer">
+          <p className="sm:px-4 border-2 border-black rounded py-[2px] bg-black text-white cursor-pointer px-1 text-xs lg:px-3 lg:text-lg md:text-base sm:text-sm hover:bg-gray-200 hover:text-black">
             Add Task
           </p>
         </div>
       </div>
-      <div>
+      <div className="pl-14 pr-1">
         <Planned
           plannedTasks={plannedTasks}
           deleteTask={deleteTask}
           handleChange={handleChange}
         />
       </div>
-      <div className="my-5">
+      <div className="my-5 pl-14 pr-1">
         <UpcomingTasks
           plannedTasks={plannedTasks}
           deleteTask={deleteTask}
           handleChange={handleChange}
         />
       </div>
-      <div>
+      <div className="pl-14 pr-1">
         <CompleteTasks plannedTasks={CompleteTasks1} deleteTask={deleteTask} />
       </div>
     </div>

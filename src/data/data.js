@@ -8,7 +8,7 @@ export const TasksData = {
         Document: true,
         Event: false,
         Internal: true,
-        Marketing: false,
+        Marketing: true,
         Urgent: false,
         Report: false,
       },

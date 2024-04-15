@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { DeleteIcon } from "../icons/icons";
+import { CAretDown, DeleteIcon, Down, Options } from "../icons/icons";
 // import { TasksData } from "../data/data";
 
-const Planned = ({ plannedTasks, deleteTask ,handleChange}) => {
+const Planned = ({ plannedTasks, deleteTask, handleChange }) => {
   const navigate = useNavigate();
   function cheeckTopics(e) {
     const tasksarray = [];
@@ -16,36 +16,44 @@ const Planned = ({ plannedTasks, deleteTask ,handleChange}) => {
     return tasksarray;
   }
 
-
   return (
     <div className="flex flex-col gap-5">
       <div className="flex gap-4 items-center ">
-        <h1 className="text-2xl font-semibold">Planned Tasks</h1>
-        <p className="text-xs">{plannedTasks.PlannedTasks.length} Opened Tasks</p>
+        <Options />
+        <h1 className="text-2xl font-semibold flex items-center gap-3">
+          <span className="w-3 h-3 bg-yellow-400 rounded-full"></span>Planned
+          Tasks
+        </h1>
+        <p className="text-xs">
+          {plannedTasks.PlannedTasks.length} Opened Tasks
+        </p>
       </div>
       <button
-        className="w-full bg-gray-300 rounded p-2 text-center text-gray-500 shadow-2xl"
+        className="w-full bg-gray-300 rounded p-2 text-center text-gray-500 shadow-2xl hover:bg-gray-200"
         onClick={() => navigate("/form/PlannedTasks")}
       >
         + Create Task
       </button>
       <div className="flex flex-col gap-2 w-full text-xs">
         {plannedTasks.PlannedTasks.map((e) => (
-          <div className="flex flex-col gap-5 w-full border-2 rounded p-3">
-            <div className="flex justify-between" key={e.title}>
-              <div className="flex gap-3 h-auto w-1/2 items-center">
+          <div className="flex flex-col gap-5 w-full border-2 rounded p-3 flex-wrap shadow-2xl">
+            <div
+              className="flex justify-between flex-col lg:flex-row gap-2 lg:gap-0"
+              key={e.title}
+            >
+              <div className="flex gap-3 h-auto lg:w-3/4 items-center justify-center lg:justify-start">
                 <input
                   type="checkbox"
                   checked={e.checked}
-                  onChange={() => handleChange(e.id,"PlannedTasks")}
+                  onChange={() => handleChange(e.id, "PlannedTasks")}
                 ></input>
                 <p className="font-semibold">{e.title}</p>
               </div>
-              <div className="w-1/2 flex gap-28 items-center">
+              <div className="w-full flex  gap-3 lg:gap-0 items-center justify-between  flex-wrap ">
                 <p className="flex items-start text-gray-500 ">
                   Due Date {e["Due At"]}
                 </p>
-                <div className="flex gap-5">
+                <div className="flex gap-5 flex-wrap lg:flex-nowrap mx-10">
                   <>
                     {cheeckTopics(e.topics).map((e) => (
                       <p
@@ -69,7 +77,9 @@ const Planned = ({ plannedTasks, deleteTask ,handleChange}) => {
               </div>
               <div className="flex justify-between  items-center gap-3">
                 <p>people</p>
-                <p onClick={() => deleteTask(e.id,"PlannedTasks")}><DeleteIcon/></p>
+                <p onClick={() => deleteTask(e.id, "PlannedTasks")}>
+                  <DeleteIcon />
+                </p>
               </div>
             </div>
           </div>
