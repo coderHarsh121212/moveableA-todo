@@ -32,7 +32,7 @@ const CompleteTasks = ({ plannedTasks, deleteTask }) => {
                 <input
                   type="checkbox"
                   checked={e.checked}
-                  onChange={() => handleChange(e.id, "upcomingTasks")}
+               
                 ></input>
                 <p className="font-semibold">{e.title}</p>
               </div>
