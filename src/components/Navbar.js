@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-import { GoPerson, GoGraph } from "react-icons/go";
-import { FiHome, FiArrowUpRight } from "react-icons/fi";
-import { MdDashboard, MdOutlineHome, MdOutlineEmail } from "react-icons/md";
-import { IoMdUnlock } from "react-icons/io";
+import { GoGraph } from "react-icons/go";
+import { MdDashboard, MdOutlineEmail } from "react-icons/md";
 import { GrNotes } from "react-icons/gr";
 import { PiGridFourFill } from "react-icons/pi";
 import { RiNotification3Line } from "react-icons/ri";
-import { BsFillSendFill } from "react-icons/bs";
 import { SlNotebook, SlCalender } from "react-icons/sl";
 import { TiContacts } from "react-icons/ti";
 import { CiSettings } from "react-icons/ci";
-import { FaSuitcaseRolling, FaShoppingBag } from "react-icons/fa";
-import { TbReportSearch } from "react-icons/tb";
+import { FaShoppingBag } from "react-icons/fa";
 import { NavIcon } from "../icons/icons";
 import { Outlet } from "react-router-dom";
+import Logogram from '../Logogram.png'
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -27,8 +24,9 @@ const Sidebar = () => {
         {open ? (
           <>
             <div className="flex flex-col gap-1 font-sans px-3">
-              <div className="w-56 h-16 flex justify-self-start">
-                {/* <img src={logo} className="ml-[-14px]"></img> */}
+              <div className="w-56 h-16 flex pt-5 gap-3">
+                <img src={Logogram} className='w-1/4 h-[60%]'></img>
+                <p className="font-bold text-xl">Venture</p>
               </div>
               <div className="flex gap-3 items-center mt-[-10px] hover:bg-[#fff] p-1 rounded">
                 <MdDashboard />
@@ -91,8 +89,8 @@ const Sidebar = () => {
         ) : (
           <div className="flex flex-col gap-9 rounded0 items-center z-50">
             <div className="flex flex-col gap-3 items-center">
-              <div className="w-10 h-10 bg-transparent">
-                {/* <img src={logo1} alt="logo-half"></img> */}
+              <div className="w-10 h-10 bg-transparent pt-4 pl-2">
+                <img src={Logogram} alt="logo-half"></img>
               </div>
               <div className="flex gap-3 items-center hover:bg-[#fff] p-2 rounded">
                 <MdDashboard />
